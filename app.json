@@ -49,6 +49,11 @@
         "resizeMode": "contain",
         "backgroundColor": "#191015"
       }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d15aa1be-8e80-4ff0-a154-294ec8d705e1"
+      }
     }
   }
 }
