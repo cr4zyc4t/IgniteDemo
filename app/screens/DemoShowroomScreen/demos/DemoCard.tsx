@@ -1,10 +1,10 @@
-/* eslint-disable react/jsx-key, react-native/no-inline-styles */
-import React from "react"
-import { AutoImage, Button, Card, Icon } from "../../../components"
-import { colors, spacing } from "../../../theme"
-import { Demo } from "../DemoShowroomScreen"
-import { DemoDivider } from "../DemoDivider"
-import { DemoUseCase } from "../DemoUseCase"
+import React from "react";
+
+import { AutoImage, Button, Card, Icon } from "../../../components";
+import { colors, spacing } from "../../../theme";
+import { DemoDivider } from "../DemoDivider";
+import { Demo } from "../DemoShowroomScreen";
+import { DemoUseCase } from "../DemoUseCase";
 
 export const DemoCard: Demo = {
   name: "Card",
@@ -90,21 +90,21 @@ export const DemoCard: Demo = {
           <Button
             preset="reversed"
             text="HeadingComponent"
-            LeftAccessory={(props) => <Icon style={props.style} icon="ladybug" />}
+            LeftAccessory={props => <Icon style={props.style} icon="ladybug" />}
           />
         }
         ContentComponent={
           <Button
             style={{ marginVertical: spacing.small }}
             text="ContentComponent"
-            LeftAccessory={(props) => <Icon style={props.style} icon="ladybug" />}
+            LeftAccessory={props => <Icon style={props.style} icon="ladybug" />}
           />
         }
         FooterComponent={
           <Button
             preset="reversed"
             text="FooterComponent"
-            LeftAccessory={(props) => <Icon style={props.style} icon="ladybug" />}
+            LeftAccessory={props => <Icon style={props.style} icon="ladybug" />}
           />
         }
       />
@@ -162,6 +162,6 @@ export const DemoCard: Demo = {
       />
     </DemoUseCase>,
   ],
-}
+};
 
 // @demo remove-file

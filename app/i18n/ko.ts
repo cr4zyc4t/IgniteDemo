@@ -1,4 +1,4 @@
-import { Translations } from "./en"
+import { Translations } from "./en";
 
 const ko: Translations = {
   common: {
@@ -121,6 +121,6 @@ const ko: Translations = {
     },
   },
   // @demo remove-block-end
-}
+};
 
-export default ko
+export default ko;

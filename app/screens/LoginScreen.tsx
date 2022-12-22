@@ -1,18 +1,19 @@
-import { observer } from "mobx-react-lite"
-import React, { FC, useEffect, useMemo, useRef, useState } from "react"
-import { TextInput, TextStyle, ViewStyle } from "react-native"
-import { Button, Icon, Screen, Text, TextField, TextFieldAccessoryProps } from "../components"
-import { useStores } from "../models"
-import { AppStackScreenProps } from "../navigators"
-import { colors, spacing } from "../theme"
+import { observer } from "mobx-react-lite";
+import React, { FC, useEffect, useMemo, useRef, useState } from "react";
+import { TextInput, TextStyle, ViewStyle } from "react-native";
+
+import { Button, Icon, Screen, Text, TextField, TextFieldAccessoryProps } from "../components";
+import { useStores } from "../models";
+import { AppStackScreenProps } from "../navigators";
+import { colors, spacing } from "../theme";
 
 interface LoginScreenProps extends AppStackScreenProps<"Login"> {}
 
 export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_props) {
-  const authPasswordInput = useRef<TextInput>()
-  const [isAuthPasswordHidden, setIsAuthPasswordHidden] = useState(true)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [attemptsCount, setAttemptsCount] = useState(0)
+  const authPasswordInput = useRef<TextInput>();
+  const [isAuthPasswordHidden, setIsAuthPasswordHidden] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [attemptsCount, setAttemptsCount] = useState(0);
   const {
     authenticationStore: {
       authEmail,
@@ -22,31 +23,31 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_
       setAuthToken,
       validationErrors,
     },
-  } = useStores()
+  } = useStores();
 
   useEffect(() => {
     // Here is where you could fetch credientials from keychain or storage
     // and pre-fill the form fields.
-    setAuthEmail("ignite@infinite.red")
-    setAuthPassword("ign1teIsAwes0m3")
-  }, [])
+    setAuthEmail("ignite@infinite.red");
+    setAuthPassword("ign1teIsAwes0m3");
+  }, []);
 
-  const errors: typeof validationErrors = isSubmitted ? validationErrors : ({} as any)
+  const errors: typeof validationErrors = isSubmitted ? validationErrors : ({} as any);
 
   function login() {
-    setIsSubmitted(true)
-    setAttemptsCount(attemptsCount + 1)
+    setIsSubmitted(true);
+    setAttemptsCount(attemptsCount + 1);
 
-    if (Object.values(validationErrors).some((v) => !!v)) return
+    if (Object.values(validationErrors).some(v => !!v)) return;
 
     // Make a request to your server to get an authentication token.
     // If successful, reset the fields and set the token.
-    setIsSubmitted(false)
-    setAuthPassword("")
-    setAuthEmail("")
+    setIsSubmitted(false);
+    setAuthPassword("");
+    setAuthEmail("");
 
     // We'll mock this with a fake token.
-    setAuthToken(String(Date.now()))
+    setAuthToken(String(Date.now()));
   }
 
   const PasswordRightAccessory = useMemo(
@@ -59,17 +60,17 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_
             containerStyle={props.style}
             onPress={() => setIsAuthPasswordHidden(!isAuthPasswordHidden)}
           />
-        )
+        );
       },
     [isAuthPasswordHidden],
-  )
+  );
 
   useEffect(() => {
     return () => {
-      setAuthPassword("")
-      setAuthEmail("")
-    }
-  }, [])
+      setAuthPassword("");
+      setAuthEmail("");
+    };
+  }, []);
 
   return (
     <Screen
@@ -121,33 +122,33 @@ export const LoginScreen: FC<LoginScreenProps> = observer(function LoginScreen(_
         onPress={login}
       />
     </Screen>
-  )
-})
+  );
+});
 
 const $screenContentContainer: ViewStyle = {
   paddingVertical: spacing.huge,
   paddingHorizontal: spacing.large,
-}
+};
 
 const $signIn: TextStyle = {
   marginBottom: spacing.small,
-}
+};
 
 const $enterDetails: TextStyle = {
   marginBottom: spacing.large,
-}
+};
 
 const $hint: TextStyle = {
   color: colors.tint,
   marginBottom: spacing.medium,
-}
+};
 
 const $textField: ViewStyle = {
   marginBottom: spacing.large,
-}
+};
 
 const $tapButton: ViewStyle = {
   marginTop: spacing.extraSmall,
-}
+};
 
 // @demo remove-file

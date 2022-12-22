@@ -9,19 +9,21 @@ import {
   DefaultTheme,
   NavigationContainer,
   NavigatorScreenParams, // @demo remove-current-line
-} from "@react-navigation/native"
-import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack"
-import { observer } from "mobx-react-lite"
-import React from "react"
-import { useColorScheme } from "react-native"
-import Config from "../config"
-import { useStores } from "../models" // @demo remove-current-line
+} from "@react-navigation/native";
+import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack";
+import { observer } from "mobx-react-lite";
+import React from "react";
+import { useColorScheme } from "react-native";
+
+import Config from "../config";
+import { useStores } from "../models"; // @demo remove-current-line
 import {
   LoginScreen, // @demo remove-current-line
   WelcomeScreen,
-} from "../screens"
-import { DemoNavigator, DemoTabParamList } from "./DemoNavigator" // @demo remove-current-line
-import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
+} from "../screens";
+
+import { DemoNavigator, DemoTabParamList } from "./DemoNavigator"; // @demo remove-current-line
+import { navigationRef, useBackButtonHandler } from "./navigationUtilities";
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -37,31 +39,31 @@ import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
  *   https://reactnavigation.org/docs/typescript/#organizing-types
  */
 export type AppStackParamList = {
-  Welcome: undefined
-  Login: undefined // @demo remove-current-line
-  Demo: NavigatorScreenParams<DemoTabParamList> // @demo remove-current-line
+  Welcome: undefined;
+  Login: undefined; // @demo remove-current-line
+  Demo: NavigatorScreenParams<DemoTabParamList>; // @demo remove-current-line
   // 🔥 Your screens go here
-}
+};
 
 /**
  * This is a list of all the route names that will exit the app if the back button
  * is pressed while in that screen. Only affects Android.
  */
-const exitRoutes = Config.exitRoutes
+const exitRoutes = Config.exitRoutes;
 
 export type AppStackScreenProps<T extends keyof AppStackParamList> = NativeStackScreenProps<
   AppStackParamList,
   T
->
+>;
 
 // Documentation: https://reactnavigation.org/docs/stack-navigator/
-const Stack = createNativeStackNavigator<AppStackParamList>()
+const Stack = createNativeStackNavigator<AppStackParamList>();
 
 const AppStack = observer(function AppStack() {
   // @demo remove-block-start
   const {
     authenticationStore: { isAuthenticated },
-  } = useStores()
+  } = useStores();
 
   // @demo remove-block-end
   return (
@@ -85,15 +87,15 @@ const AppStack = observer(function AppStack() {
       {/* @demo remove-block-end */}
       {/** 🔥 Your screens go here */}
     </Stack.Navigator>
-  )
-})
+  );
+});
 
 interface NavigationProps extends Partial<React.ComponentProps<typeof NavigationContainer>> {}
 
 export const AppNavigator = observer(function AppNavigator(props: NavigationProps) {
-  const colorScheme = useColorScheme()
+  const colorScheme = useColorScheme();
 
-  useBackButtonHandler((routeName) => exitRoutes.includes(routeName))
+  useBackButtonHandler(routeName => exitRoutes.includes(routeName));
 
   return (
     <NavigationContainer
@@ -103,5 +105,5 @@ export const AppNavigator = observer(function AppNavigator(props: NavigationProp
     >
       <AppStack />
     </NavigationContainer>
-  )
-})
+  );
+});

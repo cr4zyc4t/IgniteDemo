@@ -1,4 +1,4 @@
-import { Translations } from "./en"
+import { Translations } from "./en";
 
 const ar: Translations = {
   common: {
@@ -118,6 +118,6 @@ const ar: Translations = {
     },
   },
   // @demo remove-block-end
-}
+};
 
-export default ar
+export default ar;

@@ -1,10 +1,10 @@
-/* eslint-disable react/jsx-key */
-import React from "react"
-import { Text } from "../../../components"
-import { colors } from "../../../theme"
-import { Demo } from "../DemoShowroomScreen"
-import { DemoDivider } from "../DemoDivider"
-import { DemoUseCase } from "../DemoUseCase"
+import React from "react";
+
+import { Text } from "../../../components";
+import { colors } from "../../../theme";
+import { DemoDivider } from "../DemoDivider";
+import { Demo } from "../DemoShowroomScreen";
+import { DemoUseCase } from "../DemoUseCase";
 
 export const DemoText: Demo = {
   name: "Text",
@@ -141,6 +141,6 @@ export const DemoText: Demo = {
       </Text>
     </DemoUseCase>,
   ],
-}
+};
 
 // @demo remove-file

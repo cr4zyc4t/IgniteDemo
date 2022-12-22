@@ -1,39 +1,39 @@
-/* eslint-disable react/jsx-key, react-native/no-inline-styles */
-import React from "react"
-import { Image, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
-import { AutoImage, Text } from "../../../components"
-import { colors, spacing } from "../../../theme"
-import { Demo } from "../DemoShowroomScreen"
-import { DemoDivider } from "../DemoDivider"
-import { DemoUseCase } from "../DemoUseCase"
+import React from "react";
+import { Image, ImageStyle, TextStyle, View, ViewStyle } from "react-native";
+
+import { AutoImage, Text } from "../../../components";
+import { colors, spacing } from "../../../theme";
+import { DemoDivider } from "../DemoDivider";
+import { Demo } from "../DemoShowroomScreen";
+import { DemoUseCase } from "../DemoUseCase";
 
 const $imageContainer: ViewStyle = {
   alignItems: "center",
-}
+};
 
 const $aspectRatioDescription: TextStyle = {
   textAlign: "center",
   width: "100%",
   marginTop: spacing.extraSmall,
-}
+};
 
 const $aspectRatioWidthExampleContainer: ViewStyle = {
   flexDirection: "row",
   justifyContent: "space-between",
-}
+};
 
 const $aspectRatioHeightExampleContainer: ViewStyle = {
   alignItems: "stretch",
   justifyContent: "space-between",
   height: 130,
-}
+};
 
 const $aspectRatioBox: ViewStyle & ImageStyle = {
   borderRadius: 4,
   borderWidth: 3,
   borderColor: colors.palette.secondary300,
   backgroundColor: colors.palette.neutral800,
-}
+};
 
 export const DemoAutoImage: Demo = {
   name: "AutoImage",
@@ -205,6 +205,6 @@ export const DemoAutoImage: Demo = {
       </Text>
     </DemoUseCase>,
   ],
-}
+};
 
 // @demo remove-file

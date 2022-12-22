@@ -1,17 +1,17 @@
-/* eslint-disable react/jsx-key, react-native/no-inline-styles */
-import React from "react"
-import { TextStyle, View, ViewStyle } from "react-native"
-import { FlatList } from "react-native-gesture-handler"
-import { Icon, ListItem, Text } from "../../../components"
-import { colors, spacing } from "../../../theme"
-import { Demo } from "../DemoShowroomScreen"
-import { DemoDivider } from "../DemoDivider"
-import { DemoUseCase } from "../DemoUseCase"
+import React from "react";
+import { TextStyle, View, ViewStyle } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
+
+import { Icon, ListItem, Text } from "../../../components";
+import { colors, spacing } from "../../../theme";
+import { DemoDivider } from "../DemoDivider";
+import { Demo } from "../DemoShowroomScreen";
+import { DemoUseCase } from "../DemoUseCase";
 
 const flatListData =
   `Tempor Id Ea Aliqua Pariatur Aliquip. Irure Minim Voluptate Consectetur Consequat Sint Esse Proident Irure. Nostrud Elit Veniam Nostrud Excepteur Minim Deserunt Quis Dolore Velit Nulla Irure Voluptate Tempor. Occaecat Amet Laboris Nostrud Qui Do Quis Lorem Ex Elit Fugiat Deserunt. In Pariatur Excepteur Exercitation Ex Incididunt Qui Mollit Dolor Sit Non. Culpa Officia Minim Cillum Exercitation Voluptate Proident Laboris Et Est Reprehenderit Quis Pariatur Nisi`
     .split(".")
-    .map((item) => item.trim())
+    .map(item => item.trim());
 
 const $customLeft: ViewStyle = {
   backgroundColor: colors.error,
@@ -21,27 +21,27 @@ const $customLeft: ViewStyle = {
   flexDirection: "row",
   flexWrap: "wrap",
   overflow: "hidden",
-}
+};
 
 const $customTextStyle: TextStyle = {
   color: colors.error,
-}
+};
 
 const $customTouchableStyle: ViewStyle = {
   backgroundColor: colors.error,
-}
+};
 
 const $customContainerStyle: ViewStyle = {
   borderTopWidth: 5,
   borderTopColor: colors.palette.neutral100,
-}
+};
 
 const $flatListStyle: ViewStyle = {
   paddingHorizontal: spacing.extraSmall,
   backgroundColor: colors.palette.neutral200,
   flex: 1,
   overflow: "scroll",
-}
+};
 
 export const DemoListItem: Demo = {
   name: "ListItem",
@@ -102,7 +102,7 @@ export const DemoListItem: Demo = {
         topSeparator
         LeftComponent={
           <View style={[$customLeft, { marginEnd: spacing.medium }]}>
-            {Array.from({ length: 9 }, (x, i) => i).map((i) => (
+            {Array.from({ length: 9 }, (x, i) => i).map(i => (
               <Icon key={i} icon="ladybug" color={colors.palette.neutral100} size={20} />
             ))}
           </View>
@@ -116,7 +116,7 @@ export const DemoListItem: Demo = {
         bottomSeparator
         RightComponent={
           <View style={[$customLeft, { marginStart: spacing.medium }]}>
-            {Array.from({ length: 9 }, (x, i) => i).map((i) => (
+            {Array.from({ length: 9 }, (x, i) => i).map(i => (
               <Icon key={i} icon="ladybug" color={colors.palette.neutral100} size={20} />
             ))}
           </View>
@@ -199,6 +199,6 @@ export const DemoListItem: Demo = {
       </ListItem>
     </DemoUseCase>,
   ],
-}
+};
 
 // @demo remove-file

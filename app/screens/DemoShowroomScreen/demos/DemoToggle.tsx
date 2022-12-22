@@ -1,27 +1,27 @@
-/* eslint-disable react/jsx-key, react-native/no-inline-styles */
-import React from "react"
-import { TextStyle, View, ViewStyle } from "react-native"
-import { Text, Toggle, ToggleProps } from "../../../components"
-import { colors, spacing } from "../../../theme"
-import { Demo } from "../DemoShowroomScreen"
-import { DemoDivider } from "../DemoDivider"
-import { DemoUseCase } from "../DemoUseCase"
+import React from "react";
+import { TextStyle, View, ViewStyle } from "react-native";
+
+import { Text, Toggle, ToggleProps } from "../../../components";
+import { colors, spacing } from "../../../theme";
+import { DemoDivider } from "../DemoDivider";
+import { Demo } from "../DemoShowroomScreen";
+import { DemoUseCase } from "../DemoUseCase";
 
 function ControlledToggle(props: ToggleProps) {
-  const [value, setValue] = React.useState(props.value || false)
-  return <Toggle {...props} value={value} onPress={() => setValue(!value)} />
+  const [value, setValue] = React.useState(props.value || false);
+  return <Toggle {...props} value={value} onPress={() => setValue(!value)} />;
 }
 
 const $centeredOneThirdCol: ViewStyle = {
   width: "33.33333%",
   alignItems: "center",
   justifyContent: "center",
-}
+};
 const $centeredText: TextStyle = {
   textAlign: "center",
   width: "100%",
   marginTop: spacing.extraSmall,
-}
+};
 
 export const DemoToggle: Demo = {
   name: "Toggle",
@@ -382,6 +382,6 @@ export const DemoToggle: Demo = {
       </View>
     </DemoUseCase>,
   ],
-}
+};
 
 // @demo remove-file
