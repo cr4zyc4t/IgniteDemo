@@ -1,11 +1,11 @@
 import { BottomTabScreenProps, createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { CompositeScreenProps } from "@react-navigation/native";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { TextStyle, ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Icon } from "../components";
-import { translate } from "../i18n";
 import { DemoCommunityScreen, DemoShowroomScreen, DemoDebugScreen } from "../screens";
 import { DemoPodcastListScreen } from "../screens/DemoPodcastListScreen";
 import { colors, spacing, typography } from "../theme";
@@ -33,6 +33,7 @@ const Tab = createBottomTabNavigator<DemoTabParamList>();
 
 export function DemoNavigator() {
   const { bottom } = useSafeAreaInsets();
+  const translate = useTranslation().t;
 
   return (
     <Tab.Navigator

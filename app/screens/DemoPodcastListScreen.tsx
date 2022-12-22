@@ -2,6 +2,7 @@
 // https://infinitered.github.io/ignite-cookbook/docs/MigratingToFlashList
 import { observer } from "mobx-react-lite";
 import React, { FC, useEffect, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import {
   AccessibilityProps,
   ActivityIndicator,
@@ -23,7 +24,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 import { Button, Card, EmptyState, Icon, Screen, Text, Toggle } from "../components";
-import { isRTL, translate } from "../i18n";
+import { isRTL } from "../i18n";
 import { useStores } from "../models";
 import { Episode } from "../models/Episode";
 import { DemoTabScreenProps } from "../navigators/DemoNavigator";
@@ -44,6 +45,8 @@ export const DemoPodcastListScreen: FC<DemoTabScreenProps<"DemoPodcastList">> = 
 
     const [refreshing, setRefreshing] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
+
+    const translate = useTranslation().t;
 
     // initially, kick off a background refresh without the refreshing UI
     useEffect(() => {
@@ -142,6 +145,8 @@ const EpisodeCard = observer(function EpisodeCard({
 }) {
   const liked = useSharedValue(isFavorite ? 1 : 0);
 
+  const translate = useTranslation().t;
+
   const imageUri = useMemo(() => {
     return rnrImages[Math.floor(Math.random() * rnrImages.length)];
   }, []);
@@ -197,7 +202,7 @@ const EpisodeCard = observer(function EpisodeCard({
           },
         },
       }),
-    [episode, isFavorite],
+    [episode, isFavorite, translate],
   );
 
   const handlePressFavorite = () => {

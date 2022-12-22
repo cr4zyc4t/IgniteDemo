@@ -11,17 +11,15 @@ import Config from "../config";
 import type { PersistNavigationConfig } from "../config/config.base";
 import { useIsMounted } from "../utils/useIsMounted";
 
-/* eslint-disable */
 export const RootNavigation = {
   navigate(_name: string, _params?: any) {},
   goBack() {},
   resetRoot(_state?: PartialState<NavigationState> | NavigationState) {},
   getRootState(): NavigationState {
-    return {} as any
+    return {} as any;
   },
   dispatch(_action: NavigationAction) {},
-}
-/* eslint-enable */
+};
 
 export const navigationRef = createNavigationContainerRef();
 

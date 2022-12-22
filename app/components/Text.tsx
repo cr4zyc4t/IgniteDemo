@@ -1,8 +1,8 @@
-import i18n from "i18n-js";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { StyleProp, Text as RNText, TextProps as RNTextProps, TextStyle } from "react-native";
 
-import { isRTL, translate, TxKeyPath } from "../i18n";
+import { isRTL, TXOptions } from "../i18n";
 import { colors, typography } from "../theme";
 
 type Sizes = keyof typeof $sizeStyles;
@@ -13,7 +13,7 @@ export interface TextProps extends RNTextProps {
   /**
    * Text which is looked up via i18n.
    */
-  tx?: TxKeyPath;
+  tx?: string;
   /**
    * The text to display if not using `tx` or nested components.
    */
@@ -22,7 +22,7 @@ export interface TextProps extends RNTextProps {
    * Optional options to pass to i18n. Useful for interpolation
    * as well as explicitly setting locale or translation fallbacks.
    */
-  txOptions?: i18n.TranslateOptions;
+  txOptions?: TXOptions;
   /**
    * An optional style override useful for padding & margin.
    */
@@ -54,6 +54,7 @@ export interface TextProps extends RNTextProps {
 export function Text(props: TextProps) {
   const { weight, size, tx, txOptions, text, children, style: $styleOverride, ...rest } = props;
 
+  const translate = useTranslation().t;
   const i18nText = tx && translate(tx, txOptions);
   const content = i18nText || text || children;
 
