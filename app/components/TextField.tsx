@@ -1,4 +1,5 @@
 import React, { ComponentType, forwardRef, Ref, useImperativeHandle, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import {
   StyleProp,
   TextInput,
@@ -9,7 +10,7 @@ import {
   ViewStyle,
 } from "react-native";
 
-import { isRTL, translate } from "../i18n";
+import { isRTL } from "../i18n";
 import { colors, spacing, typography } from "../theme";
 
 import { Text, TextProps } from "./Text";
@@ -126,6 +127,7 @@ export const TextField = forwardRef(function TextField(props: TextFieldProps, re
     ...TextInputProps
   } = props;
   const input = useRef<TextInput>();
+  const translate = useTranslation().t;
 
   const disabled = TextInputProps.editable === false || status === "disabled";
 

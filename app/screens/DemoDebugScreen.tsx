@@ -1,5 +1,6 @@
 import * as Application from "expo-application";
 import React, { FC } from "react";
+import { useTranslation } from "react-i18next";
 import { Linking, Platform, TextStyle, View, ViewStyle } from "react-native";
 
 import { Button, ListItem, Screen, Text } from "../components";
@@ -18,6 +19,7 @@ export const DemoDebugScreen: FC<DemoTabScreenProps<"DemoDebug">> = function Dem
   const {
     authenticationStore: { logout },
   } = useStores();
+  const { i18n } = useTranslation();
 
   const usingHermes = typeof HermesInternal === "object" && HermesInternal !== null;
 
@@ -88,6 +90,12 @@ export const DemoDebugScreen: FC<DemoTabScreenProps<"DemoDebug">> = function Dem
           }
         />
       </View>
+      <Text preset="bold">Language</Text>
+      <View style={$langContainer}>
+        <Button text="Eng" style={[$langBtn]} onPress={() => i18n.changeLanguage("en")} />
+        <Button text="Kor" style={[$langBtn]} onPress={() => i18n.changeLanguage("ko")} />
+        <Button text="Arb" style={[$langBtn]} onPress={() => i18n.changeLanguage("ar")} />
+      </View>
       <View style={$buttonContainer}>
         <Button style={$button} tx="demoDebugScreen.reactotron" onPress={demoReactotron} />
         <Text style={$hint} tx={`demoDebugScreen.${Platform.OS}ReactotronHint` as const} />
@@ -97,6 +105,16 @@ export const DemoDebugScreen: FC<DemoTabScreenProps<"DemoDebug">> = function Dem
       </View>
     </Screen>
   );
+};
+
+const $langContainer: ViewStyle = {
+  justifyContent: "space-between",
+  flexDirection: "row",
+  marginBottom: 15,
+};
+
+const $langBtn: ViewStyle = {
+  width: 100,
 };
 
 const $container: ViewStyle = {

@@ -127,7 +127,6 @@ export const DemoText: Demo = {
         </Text>
         {` `}
         <Text
-          /* eslint-disable react-native/no-inline-styles */
           style={{
             textDecorationLine: "underline line-through",
             textDecorationStyle: "dashed",

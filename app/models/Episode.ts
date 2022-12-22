@@ -1,6 +1,6 @@
+import { t as translate } from "i18next";
 import { Instance, SnapshotIn, SnapshotOut, types } from "mobx-state-tree";
 
-import { translate } from "../i18n";
 import { formatDate } from "../utils/formatDate";
 
 import { withSetPropAction } from "./helpers/withSetPropAction";
