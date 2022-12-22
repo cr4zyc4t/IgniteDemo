@@ -6,6 +6,11 @@
     "slug": "IgniteDemo",
     "scheme": "ignitedemo",
     "version": "1.0.1",
+    "runtimeVersion": "1.0.1",
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/d15aa1be-8e80-4ff0-a154-294ec8d705e1"
+    },
     "orientation": "portrait",
     "icon": "./assets/images/app-icon-all.png",
     "splash": {
@@ -13,14 +18,8 @@
       "resizeMode": "contain",
       "backgroundColor": "#191015"
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/d15aa1be-8e80-4ff0-a154-294ec8d705e1"
-    },
     "jsEngine": "hermes",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "android": {
       "icon": "./assets/images/app-icon-android-legacy.png",
       "package": "com.vqt907.ignitedemo",
@@ -57,7 +56,6 @@
       "eas": {
         "projectId": "d15aa1be-8e80-4ff0-a154-294ec8d705e1"
       }
-    },
-    "runtimeVersion": "1.0.0"
+    }
   }
 }
