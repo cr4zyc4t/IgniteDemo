@@ -39,11 +39,11 @@ export const DemoHeader: Demo = {
       name="Action Icons"
       description="You can easily pass in icons to the left or right action components."
     >
-      <Header title="Left Icon" leftIcon="ladybug" safeAreaEdges={[]} />
+      <Header title="Left Icon" leftIcon="bug" safeAreaEdges={[]} />
       <DemoDivider size={24} />
-      <Header title="Right Icon" rightIcon="ladybug" safeAreaEdges={[]} />
+      <Header title="Right Icon" rightIcon="bug" safeAreaEdges={[]} />
       <DemoDivider size={24} />
-      <Header title="Both Icons" leftIcon="ladybug" rightIcon="ladybug" safeAreaEdges={[]} />
+      <Header title="Both Icons" leftIcon="bug" rightIcon="bug" safeAreaEdges={[]} />
     </DemoUseCase>,
 
     <DemoUseCase
@@ -70,7 +70,7 @@ export const DemoHeader: Demo = {
         LeftActionComponent={
           <View style={$customLeftAction}>
             {Array.from({ length: 20 }, (x, i) => i).map(i => (
-              <Icon key={i} icon="ladybug" color={colors.palette.neutral100} size={20} />
+              <Icon key={i} icon="bug" color={colors.palette.neutral100} size={20} />
             ))}
           </View>
         }
@@ -82,12 +82,12 @@ export const DemoHeader: Demo = {
       name="Title Modes"
       description="Title can be forced to stay in center (default) but may be cut off if it's too long. You can optionally make it adjust to the action buttons."
     >
-      <Header title="Centered Title" leftIcon="ladybug" rightText="Hooray" safeAreaEdges={[]} />
+      <Header title="Centered Title" leftIcon="bug" rightText="Hooray" safeAreaEdges={[]} />
       <DemoDivider size={24} />
       <Header
         title="Flex Title"
         titleMode="flex"
-        leftIcon="ladybug"
+        leftIcon="bug"
         rightText="Hooray"
         safeAreaEdges={[]}
       />
@@ -108,7 +108,7 @@ export const DemoHeader: Demo = {
         title="Tinted Icons"
         titleStyle={$customWhiteTitle}
         backgroundColor={colors.error}
-        leftIcon="ladybug"
+        leftIcon="bug"
         leftIconColor={colors.palette.neutral100}
         safeAreaEdges={[]}
       />

@@ -81,15 +81,15 @@ export const DemoListItem: Demo = {
     </DemoUseCase>,
 
     <DemoUseCase name="Icons" description="You can customize the icons on the left or right.">
-      <ListItem topSeparator leftIcon="ladybug">
+      <ListItem topSeparator leftIcon="bug">
         Left icon
       </ListItem>
 
-      <ListItem topSeparator rightIcon="ladybug">
+      <ListItem topSeparator rightIcon="bug">
         Right Icon
       </ListItem>
 
-      <ListItem topSeparator bottomSeparator rightIcon="ladybug" leftIcon="ladybug">
+      <ListItem topSeparator bottomSeparator rightIcon="bug" leftIcon="bug">
         Left & Right Icons
       </ListItem>
     </DemoUseCase>,
@@ -103,7 +103,7 @@ export const DemoListItem: Demo = {
         LeftComponent={
           <View style={[$customLeft, { marginEnd: spacing.medium }]}>
             {Array.from({ length: 9 }, (x, i) => i).map(i => (
-              <Icon key={i} icon="ladybug" color={colors.palette.neutral100} size={20} />
+              <Icon key={i} icon="bug" color={colors.palette.neutral100} size={20} />
             ))}
           </View>
         }
@@ -117,7 +117,7 @@ export const DemoListItem: Demo = {
         RightComponent={
           <View style={[$customLeft, { marginStart: spacing.medium }]}>
             {Array.from({ length: 9 }, (x, i) => i).map(i => (
-              <Icon key={i} icon="ladybug" color={colors.palette.neutral100} size={20} />
+              <Icon key={i} icon="bug" color={colors.palette.neutral100} size={20} />
             ))}
           </View>
         }
@@ -155,7 +155,7 @@ export const DemoListItem: Demo = {
           renderItem={({ item, index }) => (
             <ListItem
               text={item}
-              rightIcon="caretRight"
+              rightIcon="caret-right"
               TextProps={{ numberOfLines: 1 }}
               topSeparator={index !== 0}
             />
@@ -190,8 +190,8 @@ export const DemoListItem: Demo = {
         textStyle={{ color: colors.palette.neutral100 }}
         style={$customTouchableStyle}
         containerStyle={$customContainerStyle}
-        rightIcon="ladybug"
-        leftIcon="ladybug"
+        rightIcon="bug"
+        leftIcon="bug"
         rightIconColor={colors.palette.neutral100}
         leftIconColor={colors.palette.neutral100}
       >

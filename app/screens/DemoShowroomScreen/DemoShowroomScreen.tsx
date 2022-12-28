@@ -77,7 +77,7 @@ const NativeListItem: FC<DemoListItem> = ({ item, sectionIndex, handleScroll }) 
           key={`section${sectionIndex}-${u}`}
           onPress={() => handleScroll(sectionIndex, index + 1)}
           text={u}
-          rightIcon={isRTL ? "caretLeft" : "caretRight"}
+          rightIcon={isRTL ? "caret-left" : "caret-right"}
         />
       ))}
     </View>

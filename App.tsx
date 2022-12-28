@@ -1,9 +1,9 @@
-import * as SplashScreen from "expo-splash-screen";
+import { preventAutoHideAsync } from "expo-splash-screen";
 import React from "react";
 
 import App from "./app/app";
 
-SplashScreen.preventAutoHideAsync();
+preventAutoHideAsync();
 
 function IgniteApp() {
   return <App />;

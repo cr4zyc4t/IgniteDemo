@@ -166,7 +166,7 @@ export const DemoToggle: Demo = {
         variant="checkbox"
         value
         status="error"
-        checkboxIcon="ladybug"
+        checkboxIcon="bug"
         label="Pass in a custom checkbox icon."
       />
       <DemoDivider size={24} />
@@ -282,7 +282,7 @@ export const DemoToggle: Demo = {
       <ControlledToggle
         value
         variant="checkbox"
-        checkboxIcon="ladybug"
+        checkboxIcon="bug"
         containerStyle={$centeredOneThirdCol}
         inputOuterStyle={{
           width: 50,

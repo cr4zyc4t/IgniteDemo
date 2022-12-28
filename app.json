@@ -6,7 +6,6 @@
     "slug": "IgniteDemo",
     "scheme": "ignitedemo",
     "version": "1.0.1",
-    "runtimeVersion": "1.0.0",
     "updates": {
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/d6bb8dec-099a-4445-95f9-606594884b19"

@@ -88,13 +88,13 @@ export interface TextFieldProps extends Omit<TextInputProps, "ref"> {
   inputWrapperStyle?: StyleProp<ViewStyle>;
   /**
    * An optional component to render on the right side of the input.
-   * Example: `RightAccessory={(props) => <Icon icon="ladybug" containerStyle={props.style} color={props.editable ? colors.textDim : colors.text} />}`
+   * Example: `RightAccessory={(props) => <Icon icon="bug" containerStyle={props.style} color={props.editable ? colors.textDim : colors.text} />}`
    * Note: It is a good idea to memoize this.
    */
   RightAccessory?: ComponentType<TextFieldAccessoryProps>;
   /**
    * An optional component to render on the left side of the input.
-   * Example: `LeftAccessory={(props) => <Icon icon="ladybug" containerStyle={props.style} color={props.editable ? colors.textDim : colors.text} />}`
+   * Example: `LeftAccessory={(props) => <Icon icon="bug" containerStyle={props.style} color={props.editable ? colors.textDim : colors.text} />}`
    * Note: It is a good idea to memoize this.
    */
   LeftAccessory?: ComponentType<TextFieldAccessoryProps>;
