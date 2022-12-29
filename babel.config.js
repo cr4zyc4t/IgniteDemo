@@ -9,7 +9,13 @@ module.exports = function (api) {
           legacy: true,
         },
       ],
-      ["@babel/plugin-proposal-optional-catch-binding"],
+      "@babel/plugin-proposal-optional-catch-binding",
+      [
+        "babel-plugin-direct-import",
+        {
+          modules: ["lodash", "@expo/vector-icons"],
+        },
+      ],
       "react-native-reanimated/plugin", // NOTE: this must be last in the plugins
     ],
   };

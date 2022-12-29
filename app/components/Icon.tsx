@@ -1,4 +1,5 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import React, { ComponentProps, ComponentType } from "react";
 import {
   ImageStyle,
@@ -9,13 +10,16 @@ import {
   ViewStyle,
 } from "react-native";
 
-export type IconTypes = ComponentProps<typeof FontAwesome>["name"];
+type FontAwesomeTypes = ComponentProps<typeof FontAwesome>["name"];
+type MaterialTypes = ComponentProps<typeof MaterialIcons>["name"];
+export type IconTypes = FontAwesomeTypes | MaterialTypes;
 
-interface IconProps extends TouchableOpacityProps {
+interface FontAwesomeProps extends TouchableOpacityProps {
+  type?: "FontAwesome";
   /**
    * The name of the icon
    */
-  icon: IconTypes;
+  icon: FontAwesomeTypes;
 
   /**
    * An optional tint color for the icon
@@ -43,14 +47,20 @@ interface IconProps extends TouchableOpacityProps {
   onPress?: TouchableOpacityProps["onPress"];
 }
 
+interface MaterialProps extends Omit<FontAwesomeProps, "icon" | "type"> {
+  type?: "Material";
+  icon: MaterialTypes;
+}
+
 /**
  * A component to render a registered icon.
  * It is wrapped in a <TouchableOpacity /> if `onPress` is provided, otherwise a <View />.
  *
  * - [Documentation and Examples](https://github.com/infinitered/ignite/blob/master/docs/Components-Icon.md)
  */
-export function Icon(props: IconProps) {
+export function Icon(props: FontAwesomeProps | MaterialProps) {
   const {
+    type,
     icon,
     color,
     size = 20,
@@ -64,18 +74,30 @@ export function Icon(props: IconProps) {
     ? TouchableOpacity
     : View;
 
-  return (
-    <Wrapper
-      accessibilityRole={isPressable ? "imagebutton" : undefined}
-      {...WrapperProps}
-      style={$containerStyleOverride}
-    >
+  const iconEl =
+    type === "Material" ? (
+      <MaterialIcons
+        name={icon}
+        style={[$imageStyle, color && { tintColor: color }, $imageStyleOverride]}
+        size={size}
+        color={color}
+      />
+    ) : (
       <FontAwesome
         name={icon}
         style={[$imageStyle, color && { tintColor: color }, $imageStyleOverride]}
         size={size}
         color={color}
       />
+    );
+
+  return (
+    <Wrapper
+      accessibilityRole={isPressable ? "imagebutton" : undefined}
+      {...WrapperProps}
+      style={$containerStyleOverride}
+    >
+      {iconEl}
     </Wrapper>
   );
 }
