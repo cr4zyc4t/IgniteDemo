@@ -60,7 +60,7 @@ export const DemoButton: Demo = {
       <Button
         preset="filled"
         RightAccessory={props => (
-          <Icon containerStyle={props.style} style={$iconStyle} icon="ladybug" />
+          <Icon containerStyle={props.style} style={$iconStyle} icon="bug" />
         )}
       >
         RightAccessory - Duis Quis
@@ -70,7 +70,7 @@ export const DemoButton: Demo = {
       <Button
         preset="filled"
         LeftAccessory={props => (
-          <Icon containerStyle={props.style} style={$iconStyle} icon="ladybug" />
+          <Icon containerStyle={props.style} style={$iconStyle} icon="bug" />
         )}
       >
         LeftAccessory - Duis Proident
@@ -93,10 +93,10 @@ export const DemoButton: Demo = {
       <Button
         preset="reversed"
         RightAccessory={props => (
-          <Icon containerStyle={props.style} style={$iconStyle} icon="ladybug" />
+          <Icon containerStyle={props.style} style={$iconStyle} icon="bug" />
         )}
         LeftAccessory={props => (
-          <Icon containerStyle={props.style} style={$iconStyle} icon="ladybug" />
+          <Icon containerStyle={props.style} style={$iconStyle} icon="bug" />
         )}
       >
         Multiline - consequat veniam veniam reprehenderit. Fugiat id nisi quis duis sunt proident
@@ -131,7 +131,7 @@ export const DemoButton: Demo = {
               $iconStyle,
               props.pressableState.pressed && $customButtonPressedRightAccessoryStyle,
             ]}
-            icon="ladybug"
+            icon="bug"
           />
         )}
       >

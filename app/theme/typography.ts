@@ -8,6 +8,7 @@ import {
   SpaceGrotesk_600SemiBold as spaceGroteskSemiBold,
   SpaceGrotesk_700Bold as spaceGroteskBold,
 } from "@expo-google-fonts/space-grotesk";
+import { FontAwesome } from "@expo/vector-icons";
 import { Platform } from "react-native";
 
 export const customFontsToLoad = {
@@ -16,6 +17,7 @@ export const customFontsToLoad = {
   spaceGroteskMedium,
   spaceGroteskSemiBold,
   spaceGroteskBold,
+  ...FontAwesome.font,
 };
 
 const fonts = {

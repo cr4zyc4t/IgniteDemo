@@ -7,12 +7,14 @@
     {
       "files": ["*.ts", "*.tsx"],
       "rules": {
+        "@typescript-eslint/no-unused-vars": "off",
         "no-shadow": "off",
         "no-undef": "off"
       }
     }
   ],
   "rules": {
+    "react-hooks/exhaustive-deps": "warn",
     "import/order": [
       "error",
       {

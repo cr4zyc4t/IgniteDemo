@@ -1,7 +1,7 @@
-import * as React from "react";
-import { ComponentType } from "react";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import React, { ComponentProps, ComponentType } from "react";
 import {
-  Image,
   ImageStyle,
   StyleProp,
   TouchableOpacity,
@@ -10,13 +10,16 @@ import {
   ViewStyle,
 } from "react-native";
 
-export type IconTypes = keyof typeof iconRegistry;
+export type FontAwesomeTypes = ComponentProps<typeof FontAwesome>["name"];
+export type MaterialIconTypes = ComponentProps<typeof MaterialIcons>["name"];
+export type IconType = "FontAwesome" | "Material";
 
-interface IconProps extends TouchableOpacityProps {
+interface FontAwesomeProps extends TouchableOpacityProps {
+  type?: "FontAwesome";
   /**
    * The name of the icon
    */
-  icon: IconTypes;
+  icon: FontAwesomeTypes;
 
   /**
    * An optional tint color for the icon
@@ -44,17 +47,23 @@ interface IconProps extends TouchableOpacityProps {
   onPress?: TouchableOpacityProps["onPress"];
 }
 
+interface MaterialProps extends Omit<FontAwesomeProps, "icon" | "type"> {
+  type?: "Material";
+  icon: MaterialIconTypes;
+}
+
 /**
  * A component to render a registered icon.
  * It is wrapped in a <TouchableOpacity /> if `onPress` is provided, otherwise a <View />.
  *
  * - [Documentation and Examples](https://github.com/infinitered/ignite/blob/master/docs/Components-Icon.md)
  */
-export function Icon(props: IconProps) {
+export function Icon(props: FontAwesomeProps | MaterialProps) {
   const {
+    type,
     icon,
     color,
-    size,
+    size = 20,
     style: $imageStyleOverride,
     containerStyle: $containerStyleOverride,
     ...WrapperProps
@@ -65,49 +74,33 @@ export function Icon(props: IconProps) {
     ? TouchableOpacity
     : View;
 
+  const iconEl =
+    type === "Material" ? (
+      <MaterialIcons
+        name={icon}
+        style={[$imageStyle, color && { tintColor: color }, $imageStyleOverride]}
+        size={size}
+        color={color}
+      />
+    ) : (
+      <FontAwesome
+        name={icon}
+        style={[$imageStyle, color && { tintColor: color }, $imageStyleOverride]}
+        size={size}
+        color={color}
+      />
+    );
+
   return (
     <Wrapper
       accessibilityRole={isPressable ? "imagebutton" : undefined}
       {...WrapperProps}
       style={$containerStyleOverride}
     >
-      <Image
-        style={[
-          $imageStyle,
-          color && { tintColor: color },
-          size && { width: size, height: size },
-          $imageStyleOverride,
-        ]}
-        source={iconRegistry[icon]}
-      />
+      {iconEl}
     </Wrapper>
   );
 }
-
-export const iconRegistry = {
-  back: require("../../assets/icons/back.png"),
-  bell: require("../../assets/icons/bell.png"),
-  caretLeft: require("../../assets/icons/caretLeft.png"),
-  caretRight: require("../../assets/icons/caretRight.png"),
-  check: require("../../assets/icons/check.png"),
-  clap: require("../../assets/icons/clap.png"),
-  community: require("../../assets/icons/community.png"),
-  components: require("../../assets/icons/components.png"),
-  debug: require("../../assets/icons/debug.png"),
-  github: require("../../assets/icons/github.png"),
-  heart: require("../../assets/icons/heart.png"),
-  hidden: require("../../assets/icons/hidden.png"),
-  ladybug: require("../../assets/icons/ladybug.png"),
-  lock: require("../../assets/icons/lock.png"),
-  menu: require("../../assets/icons/menu.png"),
-  more: require("../../assets/icons/more.png"),
-  pin: require("../../assets/icons/pin.png"),
-  podcast: require("../../assets/icons/podcast.png"),
-  settings: require("../../assets/icons/settings.png"),
-  slack: require("../../assets/icons/slack.png"),
-  view: require("../../assets/icons/view.png"),
-  x: require("../../assets/icons/x.png"),
-};
 
 const $imageStyle: ImageStyle = {
   resizeMode: "contain",

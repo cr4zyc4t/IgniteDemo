@@ -13,7 +13,7 @@ import "./i18n";
 import "./utils/ignoreWarnings";
 import { useFonts } from "expo-font";
 import * as Linking from "expo-linking";
-import { hideAsync } from "expo-splash-screen";
+import { hideAsync, preventAutoHideAsync } from "expo-splash-screen";
 import React from "react";
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context";
 
@@ -24,6 +24,8 @@ import { ErrorBoundary } from "./screens/ErrorScreen/ErrorBoundary";
 import { setupReactotron } from "./services/reactotron";
 import { customFontsToLoad } from "./theme";
 import * as storage from "./utils/storage";
+
+preventAutoHideAsync();
 
 // Set up Reactotron, which is a free desktop app for inspecting and debugging
 // React Native apps. Learn more here: https://github.com/infinitered/reactotron

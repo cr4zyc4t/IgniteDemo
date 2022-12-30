@@ -1,7 +1,6 @@
 import React, { ComponentType, FC, useMemo } from "react";
 import {
   GestureResponderEvent,
-  Image,
   ImageStyle,
   StyleProp,
   SwitchProps,
@@ -16,7 +15,7 @@ import Animated, { useAnimatedStyle, withTiming } from "react-native-reanimated"
 
 import { colors, spacing } from "../theme";
 
-import { iconRegistry, IconTypes } from "./Icon";
+import { Icon, FontAwesomeTypes } from "./Icon";
 import { Text, TextProps } from "./Text";
 
 type Variants = "checkbox" | "switch" | "radio";
@@ -116,7 +115,7 @@ interface CheckboxToggleProps extends BaseToggleProps {
   /**
    * Checkbox-only prop that changes the icon used for the "on" state.
    */
-  checkboxIcon?: IconTypes;
+  checkboxIcon?: FontAwesomeTypes;
 }
 
 interface RadioToggleProps extends BaseToggleProps {
@@ -300,8 +299,8 @@ function Checkbox(props: ToggleInputProps) {
           useAnimatedStyle(() => ({ opacity: withTiming(on ? 1 : 0) }), [on]),
         ]}
       >
-        <Image
-          source={iconRegistry[checkboxIcon] || iconRegistry.check}
+        <Icon
+          icon={checkboxIcon || "check"}
           style={[$checkboxDetail, { tintColor: iconTintColor }, $detailStyleOverride]}
         />
       </Animated.View>
@@ -504,9 +503,10 @@ function SwitchAccessibilityLabel(props: ToggleInputProps & { role: "on" | "off"
       )}
 
       {switchAccessibilityMode === "icon" && shouldLabelBeVisible && (
-        <Image
+        <Icon
           style={[$switchAccessibilityIcon, { tintColor: color }]}
-          source={role === "off" ? iconRegistry.hidden : iconRegistry.view}
+          icon={role === "off" ? "eye-slash" : "eye"}
+          size={14}
         />
       )}
     </View>

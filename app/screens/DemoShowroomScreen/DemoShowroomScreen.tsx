@@ -14,7 +14,7 @@ import {
 import { DrawerLayout, DrawerState } from "react-native-gesture-handler";
 import { useSharedValue, withTiming } from "react-native-reanimated";
 
-import { ListItem, Screen, Text } from "../../components";
+import { Icon, ListItem, Screen, Text } from "../../components";
 import { isRTL } from "../../i18n";
 import { DemoTabParamList, DemoTabScreenProps } from "../../navigators/DemoNavigator";
 import { colors, spacing } from "../../theme";
@@ -23,7 +23,7 @@ import { useSafeAreaInsetsStyle } from "../../utils/useSafeAreaInsetsStyle";
 import * as Demos from "./demos";
 import { DrawerIconButton } from "./DrawerIconButton";
 
-const logo = require("../../../assets/images/logo.png");
+const logo = require("../../assets/images/logo.png");
 
 export interface Demo {
   name: string;
@@ -77,7 +77,20 @@ const NativeListItem: FC<DemoListItem> = ({ item, sectionIndex, handleScroll }) 
           key={`section${sectionIndex}-${u}`}
           onPress={() => handleScroll(sectionIndex, index + 1)}
           text={u}
-          rightIcon={isRTL ? "caretLeft" : "caretRight"}
+          // rightIcon={isRTL ? "caret-left" : "caret-right"}
+          RightComponent={
+            <Icon
+              size={24}
+              type="Material"
+              containerStyle={{
+                justifyContent: "center",
+                alignItems: "center",
+                flexGrow: 0,
+                height: 56,
+              }}
+              icon={isRTL ? "keyboard-arrow-left" : "keyboard-arrow-right"}
+            />
+          }
         />
       ))}
     </View>

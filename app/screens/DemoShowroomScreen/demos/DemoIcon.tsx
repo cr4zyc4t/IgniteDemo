@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageStyle, TextStyle, View, ViewStyle } from "react-native";
 
-import { Icon, iconRegistry, IconTypes, Text } from "../../../components";
+import { FontAwesomeTypes, Icon, Text } from "../../../components";
 import { colors, spacing } from "../../../theme";
 import { Demo } from "../DemoShowroomScreen";
 import { DemoUseCase } from "../DemoUseCase";
@@ -30,6 +30,28 @@ const $customIcon: ImageStyle = {
   tintColor: colors.palette.neutral100,
 };
 
+const DEMO_ICONS = [
+  "search",
+  "repeat",
+  "anchor",
+  "bold",
+  "link",
+  "at",
+  "code",
+  "header",
+  "map",
+  "table",
+  "th",
+  "circle",
+  "filter",
+  "image",
+  "stop",
+  "key",
+  "sort",
+  "forward",
+  "retweet",
+] as const;
+
 export const DemoIcon: Demo = {
   name: "Icon",
   description:
@@ -40,9 +62,9 @@ export const DemoIcon: Demo = {
       description="List of icons registered inside the component."
       layout="row"
     >
-      {Object.keys(iconRegistry).map(icon => (
+      {DEMO_ICONS.map(icon => (
         <View key={icon} style={$iconTile}>
-          <Icon icon={icon as IconTypes} color={colors.tint} size={35} />
+          <Icon icon={icon} color={colors.tint} size={35} />
 
           <Text size="xs" style={$iconTileLabel}>
             {icon}
@@ -52,26 +74,22 @@ export const DemoIcon: Demo = {
     </DemoUseCase>,
 
     <DemoUseCase name="Size" description="There's a size prop." layout="row">
-      <Icon icon="ladybug" containerStyle={$demoIconContainer} />
-      <Icon icon="ladybug" size={35} containerStyle={$demoIconContainer} />
-      <Icon icon="ladybug" size={50} containerStyle={$demoIconContainer} />
-      <Icon icon="ladybug" size={75} containerStyle={$demoIconContainer} />
+      <Icon icon="bug" containerStyle={$demoIconContainer} />
+      <Icon icon="bug" size={35} containerStyle={$demoIconContainer} />
+      <Icon icon="bug" size={50} containerStyle={$demoIconContainer} />
+      <Icon icon="bug" size={75} containerStyle={$demoIconContainer} />
     </DemoUseCase>,
 
     <DemoUseCase name="Color" description="There's a color prop." layout="row">
-      <Icon icon="ladybug" color={colors.palette.accent500} containerStyle={$demoIconContainer} />
-      <Icon icon="ladybug" color={colors.palette.primary500} containerStyle={$demoIconContainer} />
-      <Icon
-        icon="ladybug"
-        color={colors.palette.secondary500}
-        containerStyle={$demoIconContainer}
-      />
-      <Icon icon="ladybug" color={colors.palette.neutral700} containerStyle={$demoIconContainer} />
-      <Icon icon="ladybug" color={colors.palette.angry500} containerStyle={$demoIconContainer} />
+      <Icon icon="bug" color={colors.palette.accent500} containerStyle={$demoIconContainer} />
+      <Icon icon="bug" color={colors.palette.primary500} containerStyle={$demoIconContainer} />
+      <Icon icon="bug" color={colors.palette.secondary500} containerStyle={$demoIconContainer} />
+      <Icon icon="bug" color={colors.palette.neutral700} containerStyle={$demoIconContainer} />
+      <Icon icon="bug" color={colors.palette.angry500} containerStyle={$demoIconContainer} />
     </DemoUseCase>,
 
     <DemoUseCase name="Styling" description="The component can be styled easily." layout="row">
-      <Icon icon="ladybug" style={$customIcon} size={40} containerStyle={$customIconContainer} />
+      <Icon icon="bug" style={$customIcon} size={40} containerStyle={$customIconContainer} />
     </DemoUseCase>,
   ],
 };

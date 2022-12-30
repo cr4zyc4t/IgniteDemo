@@ -13,7 +13,7 @@ import { isRTL } from "../i18n";
 import { colors, spacing } from "../theme";
 import { ExtendedEdge, useSafeAreaInsetsStyle } from "../utils/useSafeAreaInsetsStyle";
 
-import { Icon, IconTypes } from "./Icon";
+import { FontAwesomeTypes, Icon } from "./Icon";
 import { Text, TextProps } from "./Text";
 
 export interface HeaderProps {
@@ -60,7 +60,7 @@ export interface HeaderProps {
    * Icon that should appear on the left.
    * Can be used with `onLeftPress`.
    */
-  leftIcon?: IconTypes;
+  leftIcon?: FontAwesomeTypes;
   /**
    * An optional tint color for the left icon
    */
@@ -93,7 +93,7 @@ export interface HeaderProps {
    * Icon that should appear on the right.
    * Can be used with `onRightPress`.
    */
-  rightIcon?: IconTypes;
+  rightIcon?: FontAwesomeTypes;
   /**
    * An optional tint color for the right icon
    */
@@ -130,7 +130,7 @@ export interface HeaderProps {
 
 interface HeaderActionProps {
   backgroundColor?: string;
-  icon?: IconTypes;
+  icon?: FontAwesomeTypes;
   iconColor?: string;
   text?: TextProps["text"];
   tx?: TextProps["tx"];
